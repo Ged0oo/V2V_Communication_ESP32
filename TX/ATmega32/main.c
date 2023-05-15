@@ -1,7 +1,7 @@
 
 /*
  * main.c
- *  Created on: 9 Sept 2022
+ *  Created on: 3 May 2023
  *      Author: Mahmoud Abdelmoniem
  */
 
@@ -16,8 +16,7 @@ Motor_t motor2={
 		.in_1=PORTB_3,
 		.in_2=PORTB_4
 };
-
-Ultrasonic_t ultra ;
+Ultrasonic_t ultra;
 uint8 dis;
 uint8 dis_right=0;
 uint8 dis_left=0;
@@ -28,19 +27,36 @@ int main()
 	Ultrasonic_init();
 	UART_Init();
 	uint8 dataRecived;
+	//Obstcale_Avoiding();
 	while (1)
 	    {
 
-		UART_SendString("\nChoose your mode\n");
-		UART_SendString("\nFor RC Mode\n");
-		UART_SendString("\nV For V2V Mode\n");
 
+
+	    Dio_Write(PORTC_0, HIGH);
+	    Dio_Write(PORTC_1, LOW);
+	    Dio_Write(PORTC_2, LOW);
 	    dataRecived = UART_ReceiveByte();
 
-	    if('R' == dataRecived) RC_Car();
-	    else if('V' == dataRecived) Obstcale();
+	    if('R' == dataRecived)
+	    	{
+				Dio_Write(PORTC_0, LOW);
+
+				Dio_Write(PORTC_1, HIGH);
+				Dio_Write(PORTC_2, LOW);
+	    		RC_Car();
+
+	    	}
+	    else if('V' == dataRecived){
+	    		Dio_Write(PORTC_0, LOW);
+	    		Dio_Write(PORTC_1, LOW);
+	    		Dio_Write(PORTC_2, HIGH);
+	    		Obstcale_Avoiding();
+
+	    	}
 
 	    }
+
 
 }
 
@@ -115,7 +131,7 @@ void Robot_Speed(Motor_Sped_t speed)
 }
 void RC_Car()
 {
-	UART_SendString("RC Mode");
+
 	uint8 dataRecive=0;
 
 	  while(1)
@@ -123,32 +139,32 @@ void RC_Car()
 		UART_Receive_NoBlock(&dataRecive);
 
 	    if('f' == dataRecive) Robot_Move_Forward();
-
 	    else if('r' == dataRecive) Robot_Move_Right();
 	    else if('l' == dataRecive) Robot_Move_Left();
 	    else if('s' == dataRecive) Robot_Stop();
+	    else if('b' == dataRecive)Robot_Move_Backward();
 	    else if('t' == dataRecive) {Robot_Stop(); break;}
 	    else /* Nothing */;
 	  }
 }
-void Obstcale()
+void Obstcale_Avoiding()
 {
-	UART_SendString("V2V Mode");
 	uint8 dataRecive=0;
 	while(1){
-		UART_Receive_NoBlock(&dataRecive);
-		_delay_ms(10);
+		    UART_Receive_NoBlock(&dataRecive);
+		   _delay_ms(100);
 			dis=UltrasonicReadDistance(&ultra);
 			_delay_ms(10);
-			if(dis > STOP_DISTANCE)
+			if(dis > 30)
 			{
 				UART_SendByte('f');
 				Robot_Move_Forward();
 			}
-			else if (dis<STOP_DISTANCE)
+			else if (dis<30)
 			{
-				Robot_Stop();
 				UART_SendByte('s');
+				Robot_Stop();
+
 				Servo_angle(0);
 				_delay_ms(1000);
 				dis_right=UltrasonicReadDistance(&ultra);
@@ -161,21 +177,16 @@ void Obstcale()
 				if(dis_right>dis_left)
 				{
 					UART_SendByte('r');
-					UART_SendByte('r');
-					UART_SendByte('r');
-					UART_SendByte('r');
+
 					Robot_turn_Right90();
 
 				}
 				else if(dis_right<dis_left)
 				{
-					UART_SendByte('l');
-					UART_SendByte('l');
-					UART_SendByte('l');
+
 					UART_SendByte('l');
 					Robot_turn_Left90();
 				}
-
 			}
 			if(dataRecive == 't'){Robot_Stop(); break;}
 
