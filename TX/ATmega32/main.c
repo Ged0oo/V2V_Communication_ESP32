@@ -8,9 +8,10 @@
 
 #include "main.h"
 
-Motor_t motor1={
-		.in_1=PORTB_1,
-		.in_2=PORTB_2
+Motor_t motor1 =
+{
+	.in_1=PORTB_1,
+	.in_2=PORTB_2
 };
 Motor_t motor2={
 		.in_1=PORTB_3,
