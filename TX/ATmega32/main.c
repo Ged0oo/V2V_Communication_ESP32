@@ -34,33 +34,31 @@ int main()
 	uint8 dataRecived;
 	//Obstcale_Avoiding();
 	while (1)
-	    {
+	{
 
+		Dio_Write(PORTC_0, HIGH);
+		Dio_Write(PORTC_1, LOW);
+		Dio_Write(PORTC_2, LOW);
+		dataRecived = UART_ReceiveByte();
 
+	if('R' == dataRecived)
+	{
+		Dio_Write(PORTC_0, LOW);
 
-	    Dio_Write(PORTC_0, HIGH);
-	    Dio_Write(PORTC_1, LOW);
-	    Dio_Write(PORTC_2, LOW);
-	    dataRecived = UART_ReceiveByte();
+		Dio_Write(PORTC_1, HIGH);
+		Dio_Write(PORTC_2, LOW);
+		RC_Car();
 
-	    if('R' == dataRecived)
-	    	{
-				Dio_Write(PORTC_0, LOW);
+	}
+	else if('V' == dataRecived){
+		Dio_Write(PORTC_0, LOW);
+		Dio_Write(PORTC_1, LOW);
+		Dio_Write(PORTC_2, HIGH);
+		Obstcale_Avoiding();
 
-				Dio_Write(PORTC_1, HIGH);
-				Dio_Write(PORTC_2, LOW);
-	    		RC_Car();
+	}
 
-	    	}
-	    else if('V' == dataRecived){
-	    		Dio_Write(PORTC_0, LOW);
-	    		Dio_Write(PORTC_1, LOW);
-	    		Dio_Write(PORTC_2, HIGH);
-	    		Obstcale_Avoiding();
-
-	    	}
-
-	    }
+	}
 
 
 }
