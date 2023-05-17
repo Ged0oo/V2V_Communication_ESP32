@@ -13,9 +13,11 @@ Motor_t motor1 =
 	.in_1=PORTB_1,
 	.in_2=PORTB_2
 };
-Motor_t motor2={
-		.in_1=PORTB_3,
-		.in_2=PORTB_4
+
+Motor_t motor2 =
+{
+	.in_1=PORTB_3,
+	.in_2=PORTB_4
 };
 Ultrasonic_t ultra;
 uint8 dis;
