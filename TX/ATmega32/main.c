@@ -24,6 +24,7 @@ Ultrasonic_t ultra;
 uint8 dis;
 uint8 dis_right=0;
 uint8 dis_left=0;
+
 int main()
 {
 	sei();
