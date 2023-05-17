@@ -19,6 +19,7 @@ Motor_t motor2 =
 	.in_1=PORTB_3,
 	.in_2=PORTB_4
 };
+
 Ultrasonic_t ultra;
 uint8 dis;
 uint8 dis_right=0;
