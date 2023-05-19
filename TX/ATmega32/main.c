@@ -38,6 +38,7 @@ int main()
 		Dio_Write(PORTC_1, LOW);
 		Dio_Write(PORTC_2, LOW);
 		dataRecived = UART_ReceiveByte();
+		
 	if('R' == dataRecived)
 	{
 		Dio_Write(PORTC_0, LOW);
