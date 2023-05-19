@@ -32,7 +32,6 @@ int main()
 	Ultrasonic_init();
 	UART_Init();
 	uint8 dataRecived;
-	//Obstcale_Avoiding();
 	while (1)
 	{
 		Dio_Write(PORTC_0, HIGH);
