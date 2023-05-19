@@ -54,8 +54,6 @@ int main()
 			Obstcale_Avoiding();
 		}
 	}
-
-
 }
 
 void Robot_Move_Forward()
