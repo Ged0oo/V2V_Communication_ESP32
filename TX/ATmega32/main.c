@@ -48,12 +48,12 @@ int main()
 		RC_Car();
 
 	}
-	else if('V' == dataRecived){
+	else if('V' == dataRecived)
+	{
 		Dio_Write(PORTC_0, LOW);
 		Dio_Write(PORTC_1, LOW);
 		Dio_Write(PORTC_2, HIGH);
 		Obstcale_Avoiding();
-
 	}
 
 	}
