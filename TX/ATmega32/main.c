@@ -39,23 +39,20 @@ int main()
 		Dio_Write(PORTC_2, LOW);
 		dataRecived = UART_ReceiveByte();
 		
-	if('R' == dataRecived)
-	{
-		Dio_Write(PORTC_0, LOW);
-
-		Dio_Write(PORTC_1, HIGH);
-		Dio_Write(PORTC_2, LOW);
-		RC_Car();
-
-	}
-	else if('V' == dataRecived)
-	{
-		Dio_Write(PORTC_0, LOW);
-		Dio_Write(PORTC_1, LOW);
-		Dio_Write(PORTC_2, HIGH);
-		Obstcale_Avoiding();
-	}
-
+		if('R' == dataRecived)
+		{
+			Dio_Write(PORTC_0, LOW);
+			Dio_Write(PORTC_1, HIGH);
+			Dio_Write(PORTC_2, LOW);
+			RC_Car();
+		}
+		else if('V' == dataRecived)
+		{
+			Dio_Write(PORTC_0, LOW);
+			Dio_Write(PORTC_1, LOW);
+			Dio_Write(PORTC_2, HIGH);
+			Obstcale_Avoiding();
+		}
 	}
 
 
