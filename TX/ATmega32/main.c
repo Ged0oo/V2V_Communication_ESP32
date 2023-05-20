@@ -80,15 +80,6 @@ void Robot_Move_Left()
 	Motor_Move_Right(&motor2);
 }
 
-void Robot_turn_Right90()
-{
-
-	Robot_Move_Right();
-	_delay_ms(1500);
-	Robot_Stop();
-
-}
-
 void Robot_turn_Left90()
 {
 
