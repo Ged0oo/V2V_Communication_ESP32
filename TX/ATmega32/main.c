@@ -95,21 +95,18 @@ void Robot_Speed(Motor_Sped_t speed)
 
 void RC_Car()
 {
-
 	uint8 dataRecive=0;
-
-	  while(1)
-	  {
+	while(1)
+	{
 		UART_Receive_NoBlock(&dataRecive);
-
-	    if('f' == dataRecive) Robot_Move_Forward();
-	    else if('r' == dataRecive) Robot_Move_Right();
-	    else if('l' == dataRecive) Robot_Move_Left();
-	    else if('s' == dataRecive) Robot_Stop();
-	    else if('b' == dataRecive)Robot_Move_Backward();
-	    else if('t' == dataRecive) {Robot_Stop(); break;}
-	    else /* Nothing */;
-	  }
+		if('f' == dataRecive) Robot_Move_Forward();
+		else if('r' == dataRecive) Robot_Move_Right();
+		else if('l' == dataRecive) Robot_Move_Left();
+		else if('s' == dataRecive) Robot_Stop();
+		else if('b' == dataRecive)Robot_Move_Backward();
+		else if('t' == dataRecive) {Robot_Stop(); break;}
+		else /* Nothing */;
+	}
 }
 
 void Obstcale_Avoiding()
