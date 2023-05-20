@@ -105,14 +105,6 @@ void Robot_Reverse()
 	_delay_ms(3000);
 }
 
-void Robot_Move_Step()
-{
-	Robot_Speed(HIGH_SPEED);
-	Robot_Move_Forward();
-	_delay_ms(10);
-
-}
-
 void Robot_Stop()
 {
 	Motor_Stop(&motor1);
