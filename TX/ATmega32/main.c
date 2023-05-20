@@ -80,13 +80,6 @@ void Robot_Move_Left()
 	Motor_Move_Right(&motor2);
 }
 
-void Robot_Reverse()
-{
-	Robot_Speed(HIGH_SPEED);
-	Robot_Move_Right();
-	_delay_ms(3000);
-}
-
 void Robot_Stop()
 {
 	Motor_Stop(&motor1);
