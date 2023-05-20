@@ -112,47 +112,50 @@ void RC_Car()
 void Obstcale_Avoiding()
 {
 	uint8 dataRecive=0;
-	while(1){
-		    UART_Receive_NoBlock(&dataRecive);
-		   _delay_ms(100);
-			dis=UltrasonicReadDistance(&ultra);
-			_delay_ms(10);
-			if(dis > 30)
-			{
-				UART_SendByte('f');
-				Robot_Move_Forward();
-			}
-			else if (dis<30)
-			{
-				UART_SendByte('s');
-				Robot_Stop();
-
-				Servo_angle(0);
-				_delay_ms(1000);
-				dis_right=UltrasonicReadDistance(&ultra);
-				_delay_ms(300);
-				Servo_angle(180);
-				_delay_ms(1000);
-				dis_left=UltrasonicReadDistance(&ultra);
-				_delay_ms(300);
-				Servo_angle(90);
-				if(dis_right>dis_left)
-				{
-					UART_SendByte('r');
-
-					Robot_turn_Right90();
-
-				}
-				else if(dis_right<dis_left)
-				{
-
-					UART_SendByte('l');
-					Robot_turn_Left90();
-				}
-			}
-			if(dataRecive == 't'){Robot_Stop(); break;}
-
+	while(1)
+	{
+		UART_Receive_NoBlock(&dataRecive);
+		_delay_ms(100);
+		dis=UltrasonicReadDistance(&ultra);
+		_delay_ms(10);
+		if(dis > 30)
+		{
+			UART_SendByte('f');
+			Robot_Move_Forward();
 		}
+		
+		else if (dis<30)
+		{
+			UART_SendByte('s');
+			Robot_Stop();
+			
+			Servo_angle(0);
+			_delay_ms(1000);
+			
+			dis_right=UltrasonicReadDistance(&ultra);
+			_delay_ms(300);
+			
+			Servo_angle(180);
+			_delay_ms(1000);
+			
+			dis_left=UltrasonicReadDistance(&ultra);
+			_delay_ms(300);
+			Servo_angle(90);
+		
+			if(dis_right>dis_left)
+			{
+				UART_SendByte('r');
+				Robot_turn_Right90();
+			}
+
+			else if(dis_right<dis_left)
+			{
+				UART_SendByte('l');
+				Robot_turn_Left90();
+			}
+			}
+		if(dataRecive == 't'){Robot_Stop(); break;}
+	}
 }
 
 
