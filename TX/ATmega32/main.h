@@ -10,7 +10,6 @@
 
 #include "MCAL/Dio/Dio.h"
 #include "HAL/DC_motor/DC_motor.h"
-#include "HAL/LCD/lcd.h"
 #include "HAL/Servo_Motor/Servo.h"
 #include "MCAL/Timer1/Timer1.h"
 #include "HAL/ultrasonic/ultrasonic.h"
