@@ -20,7 +20,8 @@
 
 #define STOP_DISTANCE     40
 
-typedef enum{
+typedef enum
+{
 	MAX_SPEED=100,
 	HIGH_SPEED=90,
 	HALF_SPEED =50,
