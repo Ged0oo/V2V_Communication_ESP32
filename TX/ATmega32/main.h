@@ -35,8 +35,8 @@ void Robot_Move_Backward();
 void Robot_Move_Right();
 void Robot_Move_Left();
 void Robot_Stop();
+
 void Robot_Speed(Motor_Sped_t speed);
-void Robot_LineFollower();
 void RC_Car();
 void Obstcale();
 
