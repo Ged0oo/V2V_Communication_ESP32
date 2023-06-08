@@ -20,14 +20,17 @@ unsigned long lastTime = 0;
 unsigned long timerDelay = 2000;  // send readings timer
 
 // Callback when data is sent
-void OnDataSent(uint8_t *mac_addr, uint8_t sendStatus) {
-  Serial.print("Last Packet Send Status: ");
-  if (sendStatus == 0){
-    Serial.println("Delivery success");
-  }
-  else{
-    Serial.println("Delivery fail");
-  }
+void OnDataSent(uint8_t *mac_addr, uint8_t sendStatus) 
+{
+    Serial.print("Last Packet Send Status: ");
+    if (sendStatus == 0)
+    {
+        Serial.println("Delivery success");
+    }
+    else
+    {
+        Serial.println("Delivery fail");
+    }
 }
  
 void setup() {
