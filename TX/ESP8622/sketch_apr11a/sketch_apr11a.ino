@@ -42,7 +42,8 @@ void setup() {
   WiFi.mode(WIFI_STA);
 
   // Init ESP-NOW
-  if (esp_now_init() != 0) {
+  if (esp_now_init() != 0) 
+  {
     Serial.println("Error initializing ESP-NOW");
     return;
   }
