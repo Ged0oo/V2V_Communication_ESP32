@@ -7,10 +7,9 @@ uint8_t broadcastAddress[] = {0xEC , 0x62 , 0x60 , 0x75 , 0x4C , 0x70};
 
 // Structure example to send data
 // Must match the receiver structure
-typedef struct struct_message {
+typedef struct struct_message 
+{
   String a; 
-
-
 } struct_message;
 char rec=0;
 // Create a struct_message called myData
