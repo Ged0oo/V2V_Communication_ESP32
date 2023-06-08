@@ -11,10 +11,10 @@ typedef struct struct_message
 {
   String a; 
 } struct_message;
+struct_message myData;
 
 char rec=0;
 // Create a struct_message called myData
-struct_message myData;
 
 unsigned long lastTime = 0;  
 unsigned long timerDelay = 2000;  // send readings timer
