@@ -16,8 +16,6 @@
 #include "MCAL/USART/USART.h"
 #include "HAL/IR_Sensor/IR_Sensor.h"
 
-
-
 #define STOP_DISTANCE     40
 
 typedef enum
