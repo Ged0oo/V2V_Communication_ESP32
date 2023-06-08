@@ -57,8 +57,8 @@ void setup() {
   esp_now_add_peer(broadcastAddress, ESP_NOW_ROLE_SLAVE, 1, NULL, 0);
 }
  
-void loop() {
-
+void loop() 
+{
   if(Serial.available()>0)    //Checks is there any data in buffer 
   {
     Serial.print("We got:");
@@ -68,21 +68,10 @@ void loop() {
     Serial.print(rec);
     Serial.print('\n');
     esp_now_send(broadcastAddress, (uint8_t *) &rec, sizeof(rec));
-    
-    
-    }
-    
-  
- 
-  if ((millis() - lastTime) > timerDelay) {
-
-  
-    // Send message via ESP-NOW
-    
-
-    lastTime = millis();
   }
   
-
-
+  if ((millis() - lastTime) > timerDelay) 
+  {
+    lastTime = millis();
+  }
 }
