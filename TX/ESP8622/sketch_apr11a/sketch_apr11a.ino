@@ -11,6 +11,7 @@ typedef struct struct_message
 {
   String a; 
 } struct_message;
+
 char rec=0;
 // Create a struct_message called myData
 struct_message myData;
