@@ -63,9 +63,6 @@ int main(void)
 	ret = DC_Motor_Init(&motor_1);
 	ret = DC_Motor_Init(&motor_2);
 	
-	//ret = IR_Init(&Right_IR);
-	//ret = IR_Init(&Left_IR);
-	
 	Timer1_Init(TMR1_PWM_FAST_MODE_ICR1 , OCRA1_NON_INVERTING , OCRB1_NON_INVERTING);
 	PWM_FreQ_KHz(50);
 	Robot_Speed(88);
