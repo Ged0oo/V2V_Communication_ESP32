@@ -88,37 +88,10 @@ int main(void)
 }
 
 
-/*
-void LineFollowerMood(void)
-{
-	Timer1_Init(TMR1_PWM_FAST_MODE_ICR1 , OCRA1_NON_INVERTING , OCRB1_NON_INVERTING);
-	PWM_FreQ_KHz(50);
-	Robot_Speed(90);
+
+
+
 	
-	EN_IRStatus_t Right_IR_State = White;
-	EN_IRStatus_t Left_IR_State  = White;
-
-	while(1)
-	{
-		Right_IR_State = IR_Get_Status(&Right_IR);
-		Left_IR_State  = IR_Get_Status(&Left_IR);
-		
-		if(     (Left_IR_State == White) && (Right_IR_State == Black))
-		{
-			CarTurnRight();
-		}
-		else if((Left_IR_State == Black) && (Right_IR_State == White))
-		{
-			CarTurnLeft();
-		}
-		else if((Left_IR_State == White) && (Right_IR_State == White))
-		{
-			CarMoveForward();
-		}
-	}
-}
-*/
-
 
 void Robot_Speed(uint8 speed)
 {
