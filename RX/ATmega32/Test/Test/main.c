@@ -28,27 +28,6 @@ void CarStop(void);
 Std_ReturnType ret = E_NOT_OK;
 uint8 dataRecived = '0';
 
-/*
-ST_IR_t Right_IR =
-{
-	
-	.IrPin.port = PORTA_INDEX,
-	.IrPin.pin = GPIO_PIN4,
-	.IrPin.pin_direction = GPIO_DIRECTION_INPUT,
-	.IrPin.pin_logic = GPIO_LOW
-	
-};
-
-
-ST_IR_t Left_IR =
-{
-	.IrPin.port = PORTA_INDEX,
-	.IrPin.pin = GPIO_PIN5,
-	.IrPin.pin_direction = GPIO_DIRECTION_INPUT,
-	.IrPin.pin_logic = GPIO_LOW
-	
-};
-*/
 
 
 ST_dcMotor_t motor_1 =
