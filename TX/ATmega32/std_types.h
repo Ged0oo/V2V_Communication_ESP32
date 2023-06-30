@@ -24,7 +24,6 @@ typedef signed long          sint32;
 typedef uint8     Std_ReturnType;
 
 
-/*..........section:macro declaration ............*/
 #define ZERO_INIT        0
 
 #define E_OK       1
