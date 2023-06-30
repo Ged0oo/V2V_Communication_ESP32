@@ -9,7 +9,6 @@
 #ifndef STD_TYPES_H
 #define	STD_TYPES_H
 
-/*..........section:includes.........*/
 
 
 /*.............section:data type declaration.......... */
